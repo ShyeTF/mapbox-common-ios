@@ -4,11 +4,14 @@
 import PackageDescription
 import Foundation
 
+// ShyeTF fork: dependency URLs point to github.com/ShyeTF mirrors (tags *-shyetf.N) so the whole
+// SPM graph resolves from ShyeTF repositories (Xcode Cloud). No source/binary change.
+
 let commonVersion = "24.15.2"
 let commonChecksum = "382c4aa42ae24d3fcde0df89748df942ac500f9b947689f79300c814791e030a"
 let releaseType = "releases"
 
-let turfVersion: Version = "4.0.0"
+let turfVersion: Version = "4.0.0-shyetf.1"
 
 let package = Package(
     name: "MapboxCommon",
@@ -17,7 +20,7 @@ let package = Package(
         .library(name: "MapboxCommon", targets: ["MapboxCommonWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/mapbox/turf-swift.git", exact: turfVersion)
+        .package(url: "https://github.com/ShyeTF/turf-swift.git", exact: turfVersion)
     ],
     targets: [
         .target(name: "MapboxCommonWrapper", dependencies: [
